@@ -18,14 +18,18 @@ return(
 <div className='flex flex-col mt-3 p-3'>
 
 <div className='flex flex-row mb-3 justify-between'>
+
 <div className='flex flex-col'>
 <label className='text-sm text-thin text-gray-600'>First Name</label>
-<input placeholder=' John' className='border border-2 border-gray-200 ' type='text'></input>
+<input placeholder=' John' className='border border-2 border-gray-200 mr-1' type='text'></input>
+
 </div>
+
 <div className='flex flex-col'>
 <label className='text-sm text-thin text-gray-600 ml-3'>Last Name</label>
-<input placeholder=' Smith' type='text' className='border border-2 border-gray-200 '></input>
+<input placeholder=' Smith' type='text' className='border border-2 border-gray-200  mr-1'></input>
 </div>
+
 </div>
 
 <label className='text-sm text-thin text-gray-600'>Email</label>
