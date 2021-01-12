@@ -25,7 +25,7 @@ const PropertyCard = React.forwardRef((props, ref) => {
                 <img style={{ cursor: 'pointer' }} alt='property' className='rounded-sm w-58' src={props.propertyData.property.primaryImageUrl}
                     onClick={handleClick}></img>
 
-                <div className='absolute top-0 left-0 hover:bg-gray-200 '><ShareModule link={`${window.location.href}/property/${props.propertyData.property.id}`} /></div>
+                <div className='absolute top-0 left-0 hover:bg-white  rounded-l-none rounded-t-none rounded-r-xl '><ShareModule link={`${window.location.href}/property/${props.propertyData.property.id}`} /></div>
             </div>
 
             <div className='ml-3 flex flex-col w-1/3'>
