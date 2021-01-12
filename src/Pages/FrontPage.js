@@ -4,7 +4,7 @@ import postStore from "../stores/postStore";
 import { getProperties } from "../actions/postActions";
 import DropDownMenu from '../components/DropDownMenu'
 import main from '../Assets/main.jpeg'
-
+import Footer from '../components/Footer'
 
 
 const FrontPage = () => {
@@ -127,7 +127,7 @@ hover:bg-gray-100 '
 
 
             <PropertyList properties={properties} />
-
+<Footer/>
         </>
 
     )

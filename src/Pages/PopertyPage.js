@@ -9,7 +9,7 @@ import LongButton from '../components/LongButton'
 import ContactCard from '../components/ContactCard'
 import sign from '../Assets/sign.jpg'
 import UserInfoCard from '../components/UserInfoCard'
-
+import Footer from '../components/Footer'
 const PropertyPage = ({ match }) => {
     const id = match.params.id
     const [content, setContent] = useState('')
@@ -76,6 +76,7 @@ const PropertyPage = ({ match }) => {
 
 
                 : <div>No data avaliable at this time</div>}
+        <Footer/>
         </div>
     )
 

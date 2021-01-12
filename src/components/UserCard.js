@@ -14,6 +14,7 @@ const UserCard = React.forwardRef((props, ref) => {
           {openMessage? <MessageWindow/> :null}
           {openChat? <ChatWindow/> :null}
             <div className=' flex  flex-col bg-white rounded-lg p-2 shadow-xl w-28'>
+                <label className='text-xs text-gray-600 font-semibold'>Connect with Agent</label>
                 <div className=' bg-green-400 rounded-full p-1 w-2 h-2 float-right'></div>
                 <img alt='profile' className=' rounded-full w-24' src={props.profile}></img>
                 <p className='text-gray-600 text-xs font-thin hover:underline pt-1 pb-2'>
