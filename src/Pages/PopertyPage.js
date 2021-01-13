@@ -44,7 +44,7 @@ const PropertyPage = ({ match }) => {
 
             {content ?
 
-                <div>
+                <div >
 
 
                     <img alt='property' className=' rounded-sm w-full' src={content.property.primaryImageUrl}></img>
@@ -57,10 +57,10 @@ const PropertyPage = ({ match }) => {
                     </div>
                     <label className='text-lg font-semibold text-gray-500'> Get in touch</label>
 
-                    <div className='flex flex-row  '>
+                    <div className='sm:flex '>
                         <UserInfoCard content={content} />
 
-                        <div className='bg-white rounded-lg p-4 shadow-xl ml-3 w-full'>
+                        <div className='bg-white rounded-lg p-4 shadow-xl sm:ml-3 w-full'>
                             <label className=' font-semibold text-gray-600'>Greetings!</label>
                             <p>My name is <span>{content.property.primaryOwner.user.firstName}</span>
                                 <span> </span> <span>{content.property.primaryOwner.user.lastName},</span></p>

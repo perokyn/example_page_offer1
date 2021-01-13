@@ -16,9 +16,9 @@ export const PropertyData = (props) => {
 
         <div className='flex  flex-col  mt-1 mb-2 ' >
 
-            <div className='flex flex-row'>
+            <div className=' sm:flex'>
 
-                <div className='w-3/4 py-3 pl-3 bg-white rounded-lg p-2 shadow-xl '>
+                <div className='sm:w-3/4 py-3 pl-3 bg-white rounded-lg p-2 shadow-xl '>
                     <span className='font-semibold text-gray-500'>{props.data.property.description}</span>
                     <div className='text-sm text-gray-400'>
                         <p>
@@ -39,7 +39,7 @@ export const PropertyData = (props) => {
                 </div>
 
 
-                <div className='flex flex-col bg-white rounded-lg p-2 shadow-xl ml-3 w-1/4 '>
+                <div className='sm:flex bg-white rounded-lg  mt-2  sm:mt-0 flex justify-centerp-2 shadow-xl sm:ml-3 sm:w-1/4 '>
                     <label className='font-semibold text-gray-500'>Features</label>
 
                     < Features />
@@ -62,19 +62,19 @@ export const PropertyLocation = (props) => {
 
     return (
 
-        <div className='flex flex-row'>
+        <div className='sm:flex'>
 
-            <div className='bg-white rounded-lg p-2 shadow-xl  w-1/2'>
+            <div className='bg-white rounded-lg p-2 shadow-xl  mt-2 mb-2 sm:mb-0 sm:mt-0 sm:w-1/2'>
                 <label className='text-sm font-semibold text-gray-600'>Details</label>
                 <NeighbourHoodData />
 
             </div>
 
-            <div className='flex flex-row bg-white rounded-lg p-2 shadow-xl ml-3'>
+            <div className='sm:flex bg-white rounded-lg p-2 shadow-xl sm:ml-3'>
                 <AreaProperties />
-                <div>
+                <div className='mt-3'>
                     <label className='text-sm font-semibold text-gray-600'>Map</label>
-                    <img className='ml-1' alt='property location' src={map}></img>
+                    <img className='sm:ml-1' alt='property location' src={map}></img>
                 </div>
             </div>
 
@@ -89,21 +89,21 @@ export const AreaProperties = () => {
     return (
         <div>
             <label className='text-sm font-semibold text-gray-600'>New Homes in the area</label>
-            <div className='overflow-auto h-60 w-48 mt-2'>
+            <div className='overflow-auto h-60 sm:w-48 mt-2'>
                 <div className='relative p-2'>
-                    <img className='w-36' alt='house' src={ap1}></img>
+                    <img className='sm:w-36' alt='house' src={ap1}></img>
                     <p className='absolute top-0 bg-green-400 p-1 rounded-lg text-xs text-white'>$ 30435</p>
                 </div>
                 <div className='relative p-2'>
-                    <img className='w-36' alt='house' src={ap2}></img>
+                    <img className='sm:w-36' alt='house' src={ap2}></img>
                     <p className='absolute top-0 bg-green-400 p-1 rounded-lg text-xs text-white'>$ 15000</p>
                 </div>
                 <div className='relative p-2'>
-                    <img className='w-36' alt='house' src={ap3}></img>
+                    <img className='sm:w-36' alt='house' src={ap3}></img>
                     <p className='absolute top-0 bg-green-400 p-1 rounded-lg text-xs text-white'>$ 43043</p>
                 </div>
                 <div className='relative p-2'>
-                    <img className='w-36' alt='house' src={ap4}></img>
+                    <img className='sm:w-36' alt='house' src={ap4}></img>
                     <p className='absolute top-0 bg-green-400 p-1 rounded-lg text-xs text-white'>$ 10435</p>
                 </div>
 

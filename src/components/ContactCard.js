@@ -17,7 +17,7 @@ return(
 
 <div className='flex flex-col mt-3 p-3'>
 
-<div className='flex flex-row mb-3 justify-between'>
+<div className='sm:flex mb-3 justify-between'>
 
 <div className='flex flex-col'>
 <label className='text-sm text-thin text-gray-600'>First Name</label>

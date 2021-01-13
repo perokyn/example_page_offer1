@@ -105,7 +105,7 @@ const FrontPage = () => {
 
             <img alt='property' src={main}></img>
 
-            <div className='sticky top-0 z-10 flex  p-2 justify-around bg-white'>
+            <div className='sticky top-0 z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
                 < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={City} />
@@ -115,12 +115,13 @@ const FrontPage = () => {
                 < DropDownMenu defaultValue={'select Bedroom'} option={'bath'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={Bedroom} />
+                   
+                   <div className=' flex flex-col sm:flex-row'>
+                <button className=' m-3 p-2 sm:p-2 bg-gray-200 font-thin text-sm rounded-lg border border-2 border-gray-200
+                hover:bg-gray-100' onClick={applyFilter}>search</button>
 
-                <button className='p-2 bg-white font-thin text-sm rounded-lg border border-2 border-gray-200
-hover:bg-gray-100 '
-                    onClick={applyFilter}>search</button>
-
-                <p className=' pt-3 text-xs text-gray-600 hover:underline' onClick={clearFilter}>Clear search</p>
+                <p className='  sm:mt-6 pl-3 text-xs text-gray-600 hover:underline' onClick={clearFilter}>Clear search</p>
+                </div>
             </div>
 
 
