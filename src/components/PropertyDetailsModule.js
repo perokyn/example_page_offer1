@@ -39,7 +39,7 @@ export const PropertyData = (props) => {
                 </div>
 
 
-                <div className='sm:flex bg-white rounded-lg  mt-2  sm:mt-0 flex justify-centerp-2 shadow-xl sm:ml-3 sm:w-1/4 '>
+                <div className=' bg-white rounded-lg  mt-2  sm:mt-0  p-2 shadow-xl sm:ml-3 sm:w-1/4 '>
                     <label className='font-semibold text-gray-500'>Features</label>
 
                     < Features />

@@ -3,16 +3,18 @@ import '../styles/main.css'
 import msg from '../Assets/msg.jpg'
 import leavemsg from '../Assets/leavemsg.jpg'
 import {MessageWindow, ChatWindow } from './Popup_ConnectModules'
+import { AiFillSecurityScan } from 'react-icons/ai'
 
 const UserCard = React.forwardRef((props, ref) => {
 
     const[openChat, setOpenChat]=useState(false)
     const[openMessage, setOpenMessage]=useState(false)
+  
 
     return (
         <div ref={ref}>
-          {openMessage? <MessageWindow/> :null}
-          {openChat? <ChatWindow/> :null}
+          {openMessage?  <MessageWindow handleClick={()=>(setOpenMessage(!openMessage))}/>:null}
+          {openChat? <ChatWindow handleClick={()=>(setOpenChat(!openChat))} firstName={props.userData.firstName} lastName= {props.userData.lastName}/> :null}
             <div className=' flex  flex-col bg-white rounded-lg p-2 shadow-xl w-28'>
                 <label className='text-xs text-gray-600 font-semibold'>Connect with Agent</label>
                 <div className=' bg-green-400 rounded-full p-1 w-2 h-2 float-right'></div>

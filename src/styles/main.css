@@ -29124,6 +29124,18 @@ video {
   }
 }
 
+@keyframes bounce2 {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,2);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
 .animate-none {
   animation: none;
 }
@@ -29142,6 +29154,14 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+.animate-bounce2 {
+  animation: bounce2 1s infinite;
+}
+
+.animate-bounce3 {
+  animation: bounce3 1s infinite;
 }
 
 @media (min-width: 640px) {
@@ -57707,6 +57727,14 @@ video {
 
   .sm\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .sm\:animate-bounce2 {
+    animation: bounce2 1s infinite;
+  }
+
+  .sm\:animate-bounce3 {
+    animation: bounce3 1s infinite;
   }
 }
 
@@ -86274,6 +86302,14 @@ video {
   .md\:animate-bounce {
     animation: bounce 1s infinite;
   }
+
+  .md\:animate-bounce2 {
+    animation: bounce2 1s infinite;
+  }
+
+  .md\:animate-bounce3 {
+    animation: bounce3 1s infinite;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -114839,6 +114875,14 @@ video {
 
   .lg\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .lg\:animate-bounce2 {
+    animation: bounce2 1s infinite;
+  }
+
+  .lg\:animate-bounce3 {
+    animation: bounce3 1s infinite;
   }
 }
 
@@ -143406,6 +143450,14 @@ video {
   .xl\:animate-bounce {
     animation: bounce 1s infinite;
   }
+
+  .xl\:animate-bounce2 {
+    animation: bounce2 1s infinite;
+  }
+
+  .xl\:animate-bounce3 {
+    animation: bounce3 1s infinite;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -171971,5 +172023,13 @@ video {
 
   .\32xl\:animate-bounce {
     animation: bounce 1s infinite;
+  }
+
+  .\32xl\:animate-bounce2 {
+    animation: bounce2 1s infinite;
+  }
+
+  .\32xl\:animate-bounce3 {
+    animation: bounce3 1s infinite;
   }
 }

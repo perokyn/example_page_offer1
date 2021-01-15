@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import postStore from "../stores/postStore";
 import { getAproperty } from "../actions/postActions";
-import UserCard from '../components/UserCard'
-import user from '../Assets/user.jpg'
-import { AreaProperties, PropertyData, PropertyLocation } from '../components/PropertyDetailsModule'
+import {PropertyData, PropertyLocation } from '../components/PropertyDetailsModule'
 import { Text } from '../Assets/constants'
-import LongButton from '../components/LongButton'
 import ContactCard from '../components/ContactCard'
-import sign from '../Assets/sign.jpg'
 import UserInfoCard from '../components/UserInfoCard'
 import Footer from '../components/Footer'
 const PropertyPage = ({ match }) => {

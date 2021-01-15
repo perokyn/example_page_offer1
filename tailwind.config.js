@@ -70,6 +70,8 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      bounce2:'bounce2 1s infinite',
+      bounce3:'bounce3 1s infinite',
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
@@ -410,6 +412,17 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+      bounce2: {
+        '0%, 100%': {
+          transform: 'translateY(-25%)',
+          animationTimingFunction: 'cubic-bezier(0.8,0,1,2)',
+        },
+        '50%': {
+          transform: 'none',
+          animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        },
+      },
+      
     },
     letterSpacing: {
       tighter: '-0.05em',
