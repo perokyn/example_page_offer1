@@ -5,7 +5,7 @@ import { getProperties } from "../actions/postActions";
 import DropDownMenu from '../components/DropDownMenu'
 import main from '../Assets/main.jpeg'
 import Footer from '../components/Footer'
-
+import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 
 const FrontPage = () => {
 
@@ -98,37 +98,91 @@ const FrontPage = () => {
 
     }
 
+    const [searchMenu, setSearch] = useState(false)
+    //use this for top side menu transition fade in background
+    //const hidden='absolute top-8'
+    //const active='absolute top-8 transform translate-y-full  transition ease-in duration-700 p-3 flex flex-col bg-white sm:hidden '
+
+
+
+    const hidden = 'hidden'
+    const active = 'p-3 z-10 flex flex-col bg-white sm:hidden '
+
+    
 
     return (
         <>
 
+          
+                <img alt='property' src={main}></img>
 
-            <img alt='property' src={main}></img>
+             
 
-            <div className='sticky top-0 z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
-                < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
+
+            <div className='hidden sm:block sticky top-0 z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
+                <div> <span className='text-gray-800 mr-2 font-semibold'> City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={City} />
-                < DropDownMenu defaultValue={'select Price'} option={'price'} optionValues={filterData} width={'w-1/4'}
+                </div>
+                <div> <span className='text-gray-800 mr-2 font-semibold'>Price</span>< DropDownMenu defaultValue={'select Price'} option={'price'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={Price} />
-                < DropDownMenu defaultValue={'select Bedroom'} option={'bath'} optionValues={filterData} width={'w-1/4'}
+                </div>
+
+                <div> <span className='text-gray-800 mr-2 font-semibold'>Bedroom</span>< DropDownMenu defaultValue={'select Bedroom'} option={'bath'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={Bedroom} />
-                   
-                   <div className=' flex flex-col sm:flex-row'>
-                <button className=' m-3 p-2 sm:p-2 bg-gray-200 font-thin text-sm rounded-lg border border-2 border-gray-200
+
+                </div>
+
+                <div className=' flex flex-col sm:flex-row font-semibold'>
+                    <button className=' m-3 p-2 sm:p-2 bg-gray-200 font-thin text-sm rounded-lg border border-2 border-gray-200
                 hover:bg-gray-100' onClick={applyFilter}>search</button>
 
-                <p className='  sm:mt-6 pl-3 text-xs text-gray-600 hover:underline' onClick={clearFilter}>Clear search</p>
+                    <p className='  sm:mt-6 pl-3 text-xs text-gray-600 hover:underline' onClick={clearFilter}>Clear search</p>
                 </div>
             </div>
 
+            <div className=' flex sm:hidden justify-between pr-6 sticky top-0 z-11 bg-white'>
+                <div className='flex items-center ml-3 mt-2 mb-2 p-2 bg-gray-200 rounded-lg'
+                    onClick={() => setSearch(!searchMenu)}>
+                    <label>Find a property</label>
+                    <AiOutlineSearch className='text-4xl ml-2' />
+                </div>
+
+                < AiOutlineMenu className='text-4xl mt-3' />
+            </div>
 
 
+            <div className={searchMenu ? active : hidden}>
+                <hr />
+                <div className='m-2'>
+                    <span className='text-gray-800 mr-2 font-semibold'>City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
+                        handleChange={e => filterProperties(e)}
+                        ref={City} />
+                </div>
+                <div className='m-2'>
+                    <span className='text-gray-800 mr-2 font-semibold'>Price</span>< DropDownMenu defaultValue={'select Price'} option={'price'} optionValues={filterData} width={'w-1/4'}
+                        handleChange={e => filterProperties(e)}
+                        ref={Price} />
+                </div>
+                <div className='m-2'>
+                    <span className='text-gray-800 mr-2 font-semibold'>Beds</span>    < DropDownMenu defaultValue={'select Bedroom'} option={'bath'} optionValues={filterData} width={'w-1/4'}
+                        handleChange={e => filterProperties(e)}
+                        ref={Bedroom} />
+                </div>
+                <div className=' grid justify-items-stretch'>
+                    <button className='m-3 p-2  bg-gray-200 font-thin text-sm rounded-lg border border-2 border-gray-200
+                hover:bg-gray-300  transition ease-in duration-700' onClick={applyFilter}>search</button>
 
+                    <p className=' justify-self-end pr-3 text-xs text-gray-600 hover:underline' onClick={clearFilter}>Clear search</p>
+                </div>
+            </div>
+
+<div className='relative'>
             <PropertyList properties={properties} />
-<Footer/>
+            </div>
+            <Footer />
         </>
 
     )

@@ -24828,22 +24828,6 @@ video {
   visibility: hidden;
 }
 
-.hover\:visible:hover {
-  visibility: visible;
-}
-
-.hover\:invisible:hover {
-  visibility: hidden;
-}
-
-.group:hover .group-hover\:visible {
-  visibility: visible;
-}
-
-.group:hover .group-hover\:invisible {
-  visibility: hidden;
-}
-
 .whitespace-normal {
   white-space: normal;
 }
@@ -29124,18 +29108,6 @@ video {
   }
 }
 
-@keyframes bounce2 {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,2);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
 .animate-none {
   animation: none;
 }
@@ -29154,14 +29126,6 @@ video {
 
 .animate-bounce {
   animation: bounce 1s infinite;
-}
-
-.animate-bounce2 {
-  animation: bounce2 1s infinite;
-}
-
-.animate-bounce3 {
-  animation: bounce3 1s infinite;
 }
 
 @media (min-width: 640px) {
@@ -53444,22 +53408,6 @@ video {
     visibility: hidden;
   }
 
-  .sm\:hover\:visible:hover {
-    visibility: visible;
-  }
-
-  .sm\:hover\:invisible:hover {
-    visibility: hidden;
-  }
-
-  .group:hover .sm\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .sm\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .sm\:whitespace-normal {
     white-space: normal;
   }
@@ -57727,14 +57675,6 @@ video {
 
   .sm\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .sm\:animate-bounce2 {
-    animation: bounce2 1s infinite;
-  }
-
-  .sm\:animate-bounce3 {
-    animation: bounce3 1s infinite;
   }
 }
 
@@ -82018,22 +81958,6 @@ video {
     visibility: hidden;
   }
 
-  .md\:hover\:visible:hover {
-    visibility: visible;
-  }
-
-  .md\:hover\:invisible:hover {
-    visibility: hidden;
-  }
-
-  .group:hover .md\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .md\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .md\:whitespace-normal {
     white-space: normal;
   }
@@ -86301,14 +86225,6 @@ video {
 
   .md\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .md\:animate-bounce2 {
-    animation: bounce2 1s infinite;
-  }
-
-  .md\:animate-bounce3 {
-    animation: bounce3 1s infinite;
   }
 }
 
@@ -110592,22 +110508,6 @@ video {
     visibility: hidden;
   }
 
-  .lg\:hover\:visible:hover {
-    visibility: visible;
-  }
-
-  .lg\:hover\:invisible:hover {
-    visibility: hidden;
-  }
-
-  .group:hover .lg\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .lg\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .lg\:whitespace-normal {
     white-space: normal;
   }
@@ -114875,14 +114775,6 @@ video {
 
   .lg\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .lg\:animate-bounce2 {
-    animation: bounce2 1s infinite;
-  }
-
-  .lg\:animate-bounce3 {
-    animation: bounce3 1s infinite;
   }
 }
 
@@ -139166,22 +139058,6 @@ video {
     visibility: hidden;
   }
 
-  .xl\:hover\:visible:hover {
-    visibility: visible;
-  }
-
-  .xl\:hover\:invisible:hover {
-    visibility: hidden;
-  }
-
-  .group:hover .xl\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .xl\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .xl\:whitespace-normal {
     white-space: normal;
   }
@@ -143449,14 +143325,6 @@ video {
 
   .xl\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .xl\:animate-bounce2 {
-    animation: bounce2 1s infinite;
-  }
-
-  .xl\:animate-bounce3 {
-    animation: bounce3 1s infinite;
   }
 }
 
@@ -167740,22 +167608,6 @@ video {
     visibility: hidden;
   }
 
-  .\32xl\:hover\:visible:hover {
-    visibility: visible;
-  }
-
-  .\32xl\:hover\:invisible:hover {
-    visibility: hidden;
-  }
-
-  .group:hover .\32xl\:group-hover\:visible {
-    visibility: visible;
-  }
-
-  .group:hover .\32xl\:group-hover\:invisible {
-    visibility: hidden;
-  }
-
   .\32xl\:whitespace-normal {
     white-space: normal;
   }
@@ -172023,13 +171875,5 @@ video {
 
   .\32xl\:animate-bounce {
     animation: bounce 1s infinite;
-  }
-
-  .\32xl\:animate-bounce2 {
-    animation: bounce2 1s infinite;
-  }
-
-  .\32xl\:animate-bounce3 {
-    animation: bounce3 1s infinite;
   }
 }
