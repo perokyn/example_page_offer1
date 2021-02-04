@@ -20,7 +20,7 @@ const NavBar = () => {
 
       <div className=' grid grid-cols-3 gap-2  bg-gray-300 p-2 text-sm font-semibold text-gray-600' >
         <div>GetADeal.com</div>
-        <div className=' justify-self-end'>Offer1 exercise</div>
+        <div className=' justify-self-end'>()</div>
         <div className=' text-black ml-3 pl-2 hover:underline hover:text-gray-600' onClick={(e) => { openLogin(e) }}> login</div>
       </div>
       {login ? <Login /> : null}

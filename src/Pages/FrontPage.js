@@ -6,6 +6,7 @@ import DropDownMenu from '../components/DropDownMenu'
 import main from '../Assets/main.jpeg'
 import Footer from '../components/Footer'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import {withRouter} from 'react-router-dom'
 
 const FrontPage = () => {
 
@@ -53,6 +54,9 @@ const FrontPage = () => {
 
         if (postStore.getProperties().length === 0) getProperties();
         return () => postStore.removeChangeListener(onChange);
+
+        getHeight()
+
     }, []);
 
     function onChange() {
@@ -109,6 +113,13 @@ const FrontPage = () => {
     const active = 'p-3 z-10 flex flex-col bg-white sm:hidden '
 
     
+function getHeight(){
+
+    return window.innerHeight + 'px'
+
+    
+}
+
 
     return (
         <>
@@ -188,4 +199,4 @@ const FrontPage = () => {
     )
 }
 
-export default FrontPage
+export default withRouter (FrontPage)

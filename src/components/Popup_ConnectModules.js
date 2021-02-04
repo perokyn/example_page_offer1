@@ -36,12 +36,14 @@ export const ChatWindow = (props) => {
         
         setTimeout(()=>{setVisible(!visible)},3000)
     }
-  
+   
+console.log("WIndow height from message chat", props.windowHeight)
+
 
     return (
 <>
-        <div className=' absolute w-full bg-blue-200 p-36  -ml-2 rounded-md  opacity-75 '>0</div>
-        <div className=' absolute inset-x-1/2 mt-3 z-20 flex flex-col items-center  '>
+        <div style={{ top:props.windowHeight}} className=' absolute  right-0  '></div>
+        <div className=' absolute  mt-3 z-20 flex flex-col items-center  '>
 
 
 
