@@ -140,11 +140,27 @@ const FrontPage = () => {
 
           { openSideBar?
           <ChatSideBar property={properties}/>:null}
-                <img alt='property' src={main}></img>
+
+          <div className=''>
+        <div className='absolute  text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
+
+          <p className=' '>Make an Offer <br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span className='  text-6xl  font-bold text-blue-400'>Today</span>
+          </p>
+          
+         
+          </div>
+          <img alt='property' src={main}></img>
+          </div>
+                
 
              
 
-
+{/*TO DO Fix sticky position of search bar, also remember to add -webkit -sroll for stooped apple crap.. */}
             <div className='hidden sm:block sticky top-0 z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
                 <div> <span className='text-gray-800 mr-2 font-semibold'> City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}

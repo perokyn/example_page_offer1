@@ -17,9 +17,9 @@ function App() {
   return (
     
     <Router>
-    
-      <div className="max-w-screen-xl m-auto ">
-        <Navbar />
+    <Navbar />
+      <div className="max-w-screen-xl m-auto mt-24 ">
+        
 
         <Switch>
           <Route path="/realestate" exact component={FrontPage}  />

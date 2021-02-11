@@ -18,7 +18,7 @@ return(
 
 
 <div>
-<label className='text-3xl font-bold text-green-300'>Make an Offer</label>
+<label className='text-md font-bold text-green-300'>Make an Offer</label>
 <p className='text-sm font-semibold text-blue-400'>Current property:</p>
 </div>
 <ChatWindow  firstName={"test"} lastName= {"User"}/> 
