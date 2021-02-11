@@ -8,6 +8,11 @@ import Footer from '../components/Footer'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import {withRouter} from 'react-router-dom'
 import ChatSideBar from '../components/ChatSideBar'
+
+
+
+
+
 const FrontPage = () => {
     //===========REMEMBER WINDOW height is passed dwon from here to psition chat window to lower right corner
 
@@ -52,7 +57,11 @@ const FrontPage = () => {
 
     const[openSideBar, setOpenChatSideBar]=useState(false)
 
+    
+
     useEffect(() => {
+        
+       
 
         postStore.addChangeListener(onChange);
 
@@ -62,14 +71,15 @@ const FrontPage = () => {
        
 
     }, []);
+    
 
     function onChange() {
         setProperties(postStore.getProperties());
 
-
-
-
     }
+
+  
+
 
     const filterProperties = (e) => {
         let priceFilter = parseInt(Price.current.value)
@@ -129,7 +139,7 @@ const FrontPage = () => {
         <>
 
           { openSideBar?
-          <ChatSideBar/>:null}
+          <ChatSideBar property={properties}/>:null}
                 <img alt='property' src={main}></img>
 
              

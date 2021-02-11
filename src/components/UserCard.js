@@ -12,7 +12,7 @@ const UserCard = React.forwardRef((props, ref) => {
   
 
     return (
-        <div ref={ref}>
+        <div ref={ref}  >
           {openMessage?  <MessageWindow handleClick={()=>(setOpenMessage(!openMessage))}/>:null}
           {openChat? <ChatWindow     handleClick={()=>(setOpenChat(!openChat))} firstName={props.userData.firstName} lastName= {props.userData.lastName}/> :null}
             <div className=' flex  flex-col bg-white rounded-lg p-2 shadow-xl w-28'>

@@ -27,7 +27,7 @@ const NavBar = () => {
       <nav className='flex justify-start bg-gray-500 '>
 
         <li className='inline-block '>
-          <Link className=' ml-6 text-white' to="/">Home</Link>
+          <Link className=' ml-6 text-white' to="/realestate">Home</Link>
         </li>
 
 

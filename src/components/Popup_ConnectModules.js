@@ -42,8 +42,8 @@ export const ChatWindow = (props) => {
 
     return (
 <>
-        <div className=' absolute  right-0  '></div>
-        <div className=' absolute  mt-3 z-20 flex flex-col items-center  '>
+        <div className='  '></div>
+        <div className=' mt-3 z-20 flex flex-col items-center  '>
 
 
 

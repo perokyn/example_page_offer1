@@ -1,0 +1,9 @@
+# Redirect 404 Error pages to the home page
+ErrorDocument 404 https://attilawolf.info/404/404.html
+
+# Redirect non-existing pages to index.html
+Options +SymLinksIfOwnerMatch 
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
