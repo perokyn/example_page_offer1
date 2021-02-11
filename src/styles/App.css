@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+.search_bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
+}
+
+
+
+.image_banner {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1rem;
+}

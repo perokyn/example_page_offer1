@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import {withRouter} from 'react-router-dom'
 import ChatSideBar from '../components/ChatSideBar'
-
+import '../styles/App.css'
 
 
 
@@ -141,8 +141,8 @@ const FrontPage = () => {
           { openSideBar?
           <ChatSideBar property={properties}/>:null}
 
-          <div className=''>
-        <div className='absolute  text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
+          <div className='image_banner'>
+        <div className='absolute top-32 text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
 
           <p className=' '>Make an Offer <br/>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -151,17 +151,17 @@ const FrontPage = () => {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span className='  text-6xl  font-bold text-blue-400'>Today</span>
           </p>
-          
+          <p className='text-white text-xl font-semibold'>Get a Deal Tomorrow</p>
          
           </div>
-          <img alt='property' src={main}></img>
+          
           </div>
                 
-
+          <img alt='property' src={main}></img>
              
 
-{/*TO DO Fix sticky position of search bar, also remember to add -webkit -sroll for stooped apple crap.. */}
-            <div className='hidden sm:block sticky top-0 z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
+
+            <div className='hidden sm:block search_bar z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
                 <div> <span className='text-gray-800 mr-2 font-semibold'> City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                     handleChange={e => filterProperties(e)}
                     ref={City} />
