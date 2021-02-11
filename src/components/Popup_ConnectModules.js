@@ -37,12 +37,12 @@ export const ChatWindow = (props) => {
         setTimeout(()=>{setVisible(!visible)},3000)
     }
    
-console.log("WIndow height from message chat", props.windowHeight)
+//console.log("WIndow height from message chat", props.windowHeight)
 
 
     return (
 <>
-        <div style={{ top:props.windowHeight}} className=' absolute  right-0  '></div>
+        <div className=' absolute  right-0  '></div>
         <div className=' absolute  mt-3 z-20 flex flex-col items-center  '>
 
 

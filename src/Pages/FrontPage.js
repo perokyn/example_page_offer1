@@ -7,8 +7,9 @@ import main from '../Assets/main.jpeg'
 import Footer from '../components/Footer'
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import {withRouter} from 'react-router-dom'
-
+import ChatSideBar from '../components/ChatSideBar'
 const FrontPage = () => {
+    //===========REMEMBER WINDOW height is passed dwon from here to psition chat window to lower right corner
 
     const City = React.createRef()
     const Price = React.createRef()
@@ -48,6 +49,9 @@ const FrontPage = () => {
 
     })
 
+
+    const[openSideBar, setOpenChatSideBar]=useState(false)
+
     useEffect(() => {
 
         postStore.addChangeListener(onChange);
@@ -55,7 +59,7 @@ const FrontPage = () => {
         if (postStore.getProperties().length === 0) getProperties();
         return () => postStore.removeChangeListener(onChange);
 
-        getHeight()
+       
 
     }, []);
 
@@ -112,19 +116,20 @@ const FrontPage = () => {
     const hidden = 'hidden'
     const active = 'p-3 z-10 flex flex-col bg-white sm:hidden '
 
-    
-function getHeight(){
+    //=====open chat side bar===========//
 
-    return window.innerHeight + 'px'
+    function openChatSideBar(){
+  console.log("Set Open Chat Side Bar Called!!")
+        setOpenChatSideBar(!openSideBar)
 
-    
-}
+    }
 
 
     return (
         <>
 
-          
+          { openSideBar?
+          <ChatSideBar/>:null}
                 <img alt='property' src={main}></img>
 
              
@@ -191,7 +196,7 @@ function getHeight(){
             </div>
 
 <div className='relative'>
-            <PropertyList properties={properties} />
+            <PropertyList  handleChatSidebar={()=>openChatSideBar()} properties={properties} />
             </div>
             <Footer />
         </>

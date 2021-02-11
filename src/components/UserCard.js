@@ -14,7 +14,7 @@ const UserCard = React.forwardRef((props, ref) => {
     return (
         <div ref={ref}>
           {openMessage?  <MessageWindow handleClick={()=>(setOpenMessage(!openMessage))}/>:null}
-          {openChat? <ChatWindow windowHeight={props.windowHeight}    handleClick={()=>(setOpenChat(!openChat))} firstName={props.userData.firstName} lastName= {props.userData.lastName}/> :null}
+          {openChat? <ChatWindow     handleClick={()=>(setOpenChat(!openChat))} firstName={props.userData.firstName} lastName= {props.userData.lastName}/> :null}
             <div className=' flex  flex-col bg-white rounded-lg p-2 shadow-xl w-28'>
                 <label className='text-xs text-gray-600 font-semibold'>Connect with Agent</label>
                 <div className=' bg-green-400 rounded-full p-1 w-2 h-2 float-right'></div>
@@ -25,7 +25,9 @@ const UserCard = React.forwardRef((props, ref) => {
 
                 <div className='flex flex-row justify-around '>
                     <img className='w-6 h-6 rounded-sm border-2 hover:border-gray-600' alt='msg' src={msg}
-                    onClick={()=>{setOpenChat(!openChat)}} ></img>
+                    //onClick={()=>{setOpenChat(!openChat)}} 
+                    onClick={props.handleChatSidebar} 
+                    ></img>
                     <img className='w-6 h-6 rounded-sm border-2 hover:border-gray-600' alt='msg' src={leavemsg}
                    onClick={()=>{setOpenMessage(!openMessage)}}></img>
                 </div>
