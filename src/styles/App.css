@@ -38,6 +38,12 @@
 }
 
 
+.toggle_search_bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
+}
+
 .search_bar {
   position: -webkit-sticky;
   position: sticky;
@@ -51,3 +57,4 @@
   position: sticky;
   top: 1rem;
 }
+

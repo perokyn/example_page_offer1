@@ -20,22 +20,22 @@ return(
 <div className='sm:flex mb-3 justify-between'>
 
 <div className='flex flex-col'>
-<label for='firstName'  className='text-sm text-thin text-gray-600'>First Name</label>
+<label htmlFor='firstName'  className='text-sm text-thin text-gray-600'>First Name</label>
 <input id= 'firstName' placeholder=' John' className='border border-2 border-gray-200 mr-1' type='text'></input>
 
 </div>
 
 <div className='flex flex-col'>
-<label  for='lastName' className='text-sm text-thin text-gray-600 ml-3'>Last Name</label>
+<label  htmlFor='lastName' className='text-sm text-thin text-gray-600 ml-3'>Last Name</label>
 <input  id='lastName' placeholder=' Smith' type='text' className='border border-2 border-gray-200  mr-1'></input>
 </div>
 
 </div>
 
-<label  for='email' className='text-sm text-thin text-gray-600'>Email</label>
+<label  htmlFor='email' className='text-sm text-thin text-gray-600'>Email</label>
 <input id='email' placeholder=' youremail@mail.com' type='text' className='border border-2 border-gray-200 mb-3'></input>
 
-<label  for= 'message' className='text-sm text-thin text-gray-600'>Message</label>
+<label  htmlFor= 'message' className='text-sm text-thin text-gray-600'>Message</label>
 <textarea   id='message' placeholder=' Please type in your message'className='border border-2 border-gray-200 mb-3'></textarea>
 
 <LongButton>SEND MESSAGE</LongButton>

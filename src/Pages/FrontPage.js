@@ -10,7 +10,7 @@ import {withRouter} from 'react-router-dom'
 import ChatSideBar from '../components/ChatSideBar'
 import '../styles/App.css'
 
-
+import SpecialEvents  from "../utils/SpecialEvents";
 
 
 const FrontPage = () => {
@@ -61,7 +61,7 @@ const FrontPage = () => {
 
     useEffect(() => {
         
-       
+        SpecialEvents.on('OPEN_SEARCH_BAR',(emitValue)=>{setSearch({searchMenu:emitValue})})    
 
         postStore.addChangeListener(onChange);
 
@@ -124,7 +124,7 @@ const FrontPage = () => {
 
 
     const hidden = 'hidden'
-    const active = 'p-3 z-10 flex flex-col bg-white sm:hidden '
+    const active = 'p-3 z-10 flex flex-col bg-white sm:hidden search_bar '
 
     //=====open chat side bar===========//
 
@@ -141,7 +141,7 @@ const FrontPage = () => {
           { openSideBar?
           <ChatSideBar property={properties}/>:null}
 
-          <div className='image_banner'>
+          <div className='image_banner hidden sm:block'>
         <div className='absolute top-32 text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
 
           <p className=' '>Make an Offer <br/>
@@ -185,20 +185,15 @@ const FrontPage = () => {
                 </div>
             </div>
 
-            <div className=' flex sm:hidden justify-between pr-6 sticky top-0 z-11 bg-white'>
-                <div className='flex items-center ml-3 mt-2 mb-2 p-2 bg-gray-200 rounded-lg'
-                    onClick={() => setSearch(!searchMenu)}>
-                    <label>Find a property</label>
-                    <AiOutlineSearch className='text-4xl ml-2' />
-                </div>
+            
 
-                < AiOutlineMenu className='text-4xl mt-3' />
-            </div>
-
-
-            <div className={searchMenu ? active : hidden}>
+            <div className={searchMenu ? active : hidden} >
                 <hr />
-                <div className='m-2'>
+                <div className='m-2 mt-8'>
+                <div className='flex items-center justify-end ml-3 mt-2 mb-2 p-2  rounded-lg'
+                    onClick={() => setSearch(!searchMenu)}>
+                    <label>X</label>
+</div>
                     <span className='text-gray-800 mr-2 font-semibold'>City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                         handleChange={e => filterProperties(e)}
                         ref={City} />

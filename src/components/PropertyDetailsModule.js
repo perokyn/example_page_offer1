@@ -26,13 +26,13 @@ export const PropertyData = (props) => {
                             <span> | </span>
                             <span className=' '>{props.data.property.address.state}</span>
                         </p>
-                        <p>
+                        <div>
                             <span className=' '>{props.data.property.address.addressLine1}</span>
 
                             <span className=' block font-thin'> SqF {props.data.property.squareFeet}</span>
                             <BedBathModule parking={true} />
 
-                        </p>
+                        </div>
                         <Text />
 
                     </div>
