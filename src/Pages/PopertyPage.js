@@ -6,6 +6,7 @@ import { Text } from '../Assets/constants'
 import ContactCard from '../components/ContactCard'
 import UserInfoCard from '../components/UserInfoCard'
 import Footer from '../components/Footer'
+import ChatSideBar from '../components/ChatSideBar'
 const PropertyPage = ({ match }) => {
     const id = match.params.id
     const [content, setContent] = useState('')
@@ -36,7 +37,7 @@ const PropertyPage = ({ match }) => {
 
         <div>
 
-
+<ChatSideBar/>
 
             {content ?
 

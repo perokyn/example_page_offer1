@@ -43,7 +43,7 @@ const FrontPage = (props) => {
     ]
 
 
-    const [properties, setProperties] = useState(props.data);
+    const [properties, setProperties] = useState(postStore.getProperties());
     const [filter, setFilter] = useState({
         filtering: {
             city: '',
@@ -63,12 +63,21 @@ const FrontPage = (props) => {
         
         SpecialEvents.on('OPEN_SEARCH_BAR',(emitValue)=>{setSearch({searchMenu:emitValue})})    
 
-    
+        postStore.addChangeListener(onChange);
+
+        if (postStore.getProperties().length === 0) getProperties();
+        return () => postStore.removeChangeListener(onChange);
+
+       
 
     }, []);
     
 
-    
+    function onChange() {
+        setProperties(postStore.getProperties());
+
+    }
+
   
 
 
@@ -120,70 +129,28 @@ const FrontPage = (props) => {
     //=====open chat side bar and pass data to chat windows===========//
    
 const[chatWindows, setChatWIndows]=useState([])
-
     function openChatSideBar(e){
-
-
   console.log("Set Open Chat Side Bar Called!!",e.target)
   let chatData=e.target.id
   
-  
- /*  if(chatWindows.includes(chatData))
-  {
-  console.log('already in array')
-  }else { 
-      
-    const chatwindows = [ ...chatWindows ];
-    chatwindows.push(chatData);
-    setChatWIndows(chatwindows);
-  }*/
  
-  
+  setOpenChatSideBar(!openSideBar)
 
-  if(chatWindows.includes(chatData))
-    {
-    console.log('already in array')
-    }else { chatWindows[chatWindows.length]=chatData}
-  
-  if(chatWindows.length===0){ 
-
-      chatWindows[0]=chatData
-    }else if(chatWindows.includes(chatData))
-    {
-    console.log('already in array')
-    }else { chatWindows[chatWindows.length]=chatData}
- 
-
- 
- setOpenChatSideBar(!openSideBar)
-
-  console.log("chatdata",chatWindows)
+  console.log("chatdata",chatData)
        
     }
 
- const closeChatWindow=(e)=>{
-console.log("closechat with:",e.target.id)
-let close=e.target.id
-let newwindows=chatWindows.splice(close, 1)
-
-chatWindows.pop()
- // setChatWIndows([]) //TO DO LEarn to update react array in state... 
- 
-  
-console.log("after remo e",chatWindows) 
-//chatWindows.pop() 
- }  
    
 
     return (
         <div className='bg-white'>
 
-          
-          <ChatSideBar chatWindows={chatWindows} closeChatWindow={(e)=>{closeChatWindow(e)}}/>
+          { openSideBar?
+          <ChatSideBar property={properties}/>:null}
 
           <div className='image_banner hidden sm:block'>
         <div className='absolute top-32 text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
- 
+
           <p className=' '>Make an Offer <br/>
           &nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -257,7 +224,7 @@ console.log("after remo e",chatWindows)
             </div>
 
 <div className='relative'>
-            <PropertyList  chatWindows={chatWindows}  handleChatSidebar={(e)=>openChatSideBar(e)} properties={properties} />
+            <PropertyList  handleChatSidebar={(e)=>openChatSideBar(e)} properties={properties} />
             </div>
             <Footer />
         </div>

@@ -1,27 +1,50 @@
 import React, {useState} from 'react'
 import '../styles/main.css'
 import {MessageWindow, ChatWindow } from './Popup_ConnectModules'
+import Logo from '../Assets/logo.png'
+
 
 const ChatSideBar = React.forwardRef((props, ref) => {
 
+    const[chatWindows, setChatWIndows]=useState(props.chatWindows)
+    
+    console.log("CHATWINARRAY: ", chatWindows)
 
     const[visible, setVisible]=useState(false)
 
-console.log("Name data for chat:", props.property.primaryOwner)
+console.log("Name data for chat:", props.property)
 
 
 return(
-<div className=' flex fixed z-40 bottom-0 right-0 bg-gray-800 p-3 mt-3  rounded-t-xl'>
+<div id='chatSideBar' className=' flex fixed items-end z-40 bottom-0 right-0 bg-gray-100 p-3 mt-3  rounded-t-xl'>
 
 <div>
+ 
 
 
+<div className='sm:flex items-end'>
+<img alt='logo' src={Logo} className='h-10 w-10'></img>
 
-<div>
-<label className='text-md font-bold text-green-300'>Make an Offer</label>
-<p className='text-sm font-semibold text-blue-400'>Current property:</p>
+<p className='text-sm font-thin text-gray-400'>GetADeal.com</p>
 </div>
-<ChatWindow  firstName={"test"} lastName= {"User"}/> 
+
+<div className='flex'>
+{
+chatWindows&&
+chatWindows.map((chat, key)=>(
+
+    <div key={key} >
+        
+        <ChatWindow closeChatWindow={props.closeChatWindow} firstName={chat} lastName= {"User"}/>
+        </div>
+))
+
+
+}
+
+</div>
+{/*<ChatWindow  firstName={"test"} lastName= {"User"}/> */}
+
 </div>
 
 </div> 
