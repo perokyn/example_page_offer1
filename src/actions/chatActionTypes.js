@@ -1,0 +1,5 @@
+export default {
+    GET_OPEN_WINDOWS: "GET_OPEN_WINDOWS",
+    GET_A_WINDOW: "GET_A_WINDOW",
+    ADD_A_WINDOW: "ADD_A_WINDOW"
+};

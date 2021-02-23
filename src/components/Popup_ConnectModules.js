@@ -1,7 +1,7 @@
-import React ,{useState}from 'react'
+import React, { useState } from 'react'
 import ContactCard from './ContactCard'
-import { AiOutlineClose } from "react-icons/ai";
-
+import { AiOutlineClose, AiOutlineSend } from "react-icons/ai";
+import agent from '../Assets/user.jpg'
 
 export const MessageWindow = (props) => {
 
@@ -29,75 +29,91 @@ export const MessageWindow = (props) => {
 
 export const ChatWindow = (props) => {
 
-    const [closed, SetClosed]=useState(false)  ///TO DO solve that chat window can be re-opened!
-    const [visible, setVisible]=useState(true)
-    const[collapse, setCollapse]=useState(false)
- 
-    if(visible){
-        
-        setTimeout(()=>{setVisible(!visible)},3000)
+    const [closed, SetClosed] = useState(false)  ///TO DO solve that chat window can be re-opened!
+    const [visible, setVisible] = useState(true)
+    const [collapse, setCollapse] = useState(false)
+
+    if (visible) {
+
+        setTimeout(() => { setVisible(!visible) }, 3000)
     }
-   
-//console.log("WIndow height from message chat", props.windowHeight)
+
+    //console.log("WIndow height from message chat", props.windowHeight)
 
 
     return (
-<>
-        {!closed && <div className=' mt-3 z-20 flex flex-col items-center  '>
+        <>
+            {!closed && <div className=' mt-3 z-20 flex flex-col items-center  '>
 
 
 
 
 
-<div className='bg-white p-2 rounded-xl text-center'>
+                <div className='bg-white p-2 rounded-xl text-center'>
 
- <div className='bg-gray-300 px-2 border rounded-t-xl'>   
+                    <div className='bg-gray-800 px-2 border rounded-t-xl'>
 
-<div className='flex  justify-between items-center text-xs font-semibold'>
-<div className=' text-xs font-thin bg-white rounded-lg p-1'>Family House at 55 Broad street Matawan</div>
-     <div className=' flex p-1 rounded-xl justify-between'>
-      <span className=' text-xl px-1 font-bold hover:bg-gray-300' onClick={()=>{setCollapse(!collapse)}} >-</span>
-     <span id={props.firstName} className='hover:bg-gray-300 text-lg px-1' onClick={(e)=>{props.closeChatWindow(e)}}>X</span></div>
-     </div>
-</div>
+                        <div className=' flex items-center  justify-between text-xs font-semibold'>
 
+                            <div className=' flex justify-self-start font-semibold text-xs text-gray-400'>
+                                <span >{props.firstName}&#8287; </span>
+                                <span > {props.lastName} &#8287;</span>
+                            </div>
 
-<div style={collapse? {display:'none'}:{display:'block'}}>
-    <div className='bg-white  p-3 '>
-   
-    
-    <div className='flex  text-xs font-semibold'>Current Offer:<span className='flex  justify-between text-xs text-blue-400 font-thin mb-4'>$650000</span></div>
+                            <div className=' flex p-1  justify-between text-blue-400  items-center text-lg'>
+                                <span className=' text-xl px-1 font-bold hover:bg-gray-600 rounded-full w-6 h-6 ' onClick={() => { setCollapse(!collapse) }} >-</span>
+                                <span id={props.firstName} className='hover:bg-gray-600  px-1 rounded-full w-6 h-6' onClick={(e) => { props.closeChatWindow(e) }}>X</span></div>
+                        </div>
+                          <hr/>
+                        <div className=' text-xs font-thin border-solid-1 rounded-lg p-1 text-gray-200'>Family House at 55 Broad street Matawan</div>
 
-    </div>
-
-<div className='flex items-end border border-solid 2 bg-gray-200 p-3 h-32 mb-3 overflow-hidden '>
-       
-{visible?
-        <div className='flex items-baseline text-sm text-gray-600'>
-            <span className='font-semibold text-xs text-gray-600'>{props.firstName}&#8287; </span>
-            <span className='font-semibold text-xs text-gray-600'> {props.lastName} :&#8287;</span>
-            <div className="animate-pulse animate-bounce m-1  bg-gray-400 w-2 h-2 rounded-full" />
-            <div className="animate-pulse animate-bounce2  bg-gray-400 w-2 h-2 rounded-full" />
-            <div className="animate-pulse animate-bounce m-1 bg-gray-400 w-2 h-2 rounded-full" />
-        </div>
-         :<div className=' flex text-sm text-gray-900 '><p className='bg-blue-300 p-1 rounded-lg justify-start leading-tight'> <span className='font-semibold text-xs text-gray-600'>{props.firstName}&#8287; </span>
-         <span className='font-semibold text-xs text-gray-600'> {props.lastName} &#8287;</span></p> How can I help you?</div>}             
-    </div>
-
-     <hr className='mt-3 mb-3'/>
-    <div className='flex '>
-        <input className='border border-solid-2 text-sm text-gray-900 rounded-lg h-8 bg-gray-200'></input>
-        <button className=' flex p-2 ml-2 text-white bg-green-400 rounded-lg h-8 items-center' >send</button>
+                    </div>
 
 
-    </div>
+                    <div style={collapse ? { display: 'none' } : { display: 'block' }}>
+                        
+                        <div className='flex items-end border border-solid 2  p-3 h-32 mb-3 overflow-hidden '>
+
+                            {visible ?
+                                <div className='flex  items-end justify-between'>
+
+                                    <img alt='agent' src={agent} className='w-8 h-8 rounded-full mr-2'></img>
+
+                                    <div className='flex items-baseline text-sm text-gray-600 p-2'>
+
+                                        <div className="animate-pulse animate-bounce m-1  bg-gray-400 w-2 h-2 rounded-full" />
+                                        <div className="animate-pulse animate-bounce2  bg-gray-400 w-2 h-2 rounded-full" />
+                                        <div className="animate-pulse animate-bounce m-1 bg-gray-400 w-2 h-2 rounded-full" />
+
+                                    </div>
+                                </div>
+                                :
+                                <div className=' flex text-sm text-gray-900 items-end justify-between '>
+                                    <img alt='agent' src={agent} className='w-8 h-8 rounded-full mr-2'></img>
+
+                                    <p className='bg-blue-300 rounded-xl text-sm text-gray-800 leading-5 p-2'>How can I help you? </p>
+
+                                </div>
+                            }
+                        </div>
+
+                        <hr className='mt-3 mb-3' />
+                        <div className='flex justify-between'>
+                            <input type='text' placeholder='Aa' 
+                            className=' inline-flex items-center px-4 py-2  text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 
+                            focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-50 active:text-gray-800"
+                             rounded-xl h-8 bg-gray-200'></input>
+                            <button className=' flex justify-center items-center ml-1 pl-1 text-blue-400 text-2xl h-8 w-8 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-400 rounded-full  hover:bg-gray-200' ><AiOutlineSend/></button>
 
 
-</div>
-</div>
-</div>}
-        
-        
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>}
+
+
         </>
     )
 

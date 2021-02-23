@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropertyList from '../components/PorpertyList'
-import postStore from "../stores/postStore";
+import Chat_DataStore from "../stores/chatStore";
+import {addWindow,getOpenWindows} from '../actions/chatActions'
 import { getProperties } from "../actions/postActions";
 import DropDownMenu from '../components/DropDownMenu'
 import main from '../Assets/main.jpeg'
@@ -56,12 +57,18 @@ const FrontPage = (props) => {
 
 
     const[openSideBar, setOpenChatSideBar]=useState(false)
+    const[windows,setWindows]=useState( Chat_DataStore.getOpenWindows)
 
-    
 
     useEffect(() => {
-        
         SpecialEvents.on('OPEN_SEARCH_BAR',(emitValue)=>{setSearch({searchMenu:emitValue})})    
+        Chat_DataStore.addChangeListener(onChange);
+
+        if (Chat_DataStore.getOpenWindows().length === 0) getOpenWindows();
+        return () => Chat_DataStore.removeChangeListener(onChange);
+    
+
+        
 
     
 
@@ -69,7 +76,12 @@ const FrontPage = (props) => {
     
 
     
-  
+  function onChange(){
+console.log('Chat event detected',Chat_DataStore.getOpenWindows())
+    setWindows(Chat_DataStore.getOpenWindows());
+
+    console.log('WINDOWS',windows)
+  }
 
 
     const filterProperties = (e) => {
@@ -165,7 +177,7 @@ const[chatWindows, setChatWIndows]=useState([])
 console.log("closechat with:",e.target.id)
 let close=e.target.id
 let newwindows=chatWindows.splice(close, 1)
-
+addWindow(close)
 chatWindows.pop()
  // setChatWIndows([]) //TO DO LEarn to update react array in state... 
  
