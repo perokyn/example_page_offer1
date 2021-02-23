@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ContactCard from './ContactCard'
 import { AiOutlineClose, AiOutlineSend } from "react-icons/ai";
 import agent from '../Assets/user.jpg'
+import Chat_DataStore from "../stores/chatStore";
 
 export const MessageWindow = (props) => {
 
@@ -30,8 +31,34 @@ export const MessageWindow = (props) => {
 export const ChatWindow = (props) => {
 
     const [closed, SetClosed] = useState(false)  ///TO DO solve that chat window can be re-opened!
+    const[locallyClosed, setLocallyClosed]=useState(false)
     const [visible, setVisible] = useState(true)
     const [collapse, setCollapse] = useState(false)
+
+
+
+    useEffect(()=>{
+
+        Chat_DataStore.addChangeListener(onChange);
+    
+        
+    
+    })
+    
+    
+    const onChange=()=>{
+        const windows=Chat_DataStore.getOpenWindows()
+       
+    if(windows.includes(props.firstName)
+
+    ){ 
+
+      SetClosed(!closed)     }
+     }
+    
+
+
+
 
     if (visible) {
 
@@ -40,6 +67,15 @@ export const ChatWindow = (props) => {
 
     //console.log("WIndow height from message chat", props.windowHeight)
 
+
+    const handleCloseWindow =(e)=>{
+        props.closeChatWindow(e)
+         SetClosed(!closed)
+         setLocallyClosed(true)
+        
+     }
+
+     
 
     return (
         <>
@@ -62,7 +98,7 @@ export const ChatWindow = (props) => {
 
                             <div className=' flex p-1  justify-between text-blue-400  items-center text-lg'>
                                 <span className=' text-xl px-1 font-bold hover:bg-gray-600 rounded-full w-6 h-6 ' onClick={() => { setCollapse(!collapse) }} >-</span>
-                                <span id={props.firstName} className='hover:bg-gray-600  px-1 rounded-full w-6 h-6' onClick={(e) => { props.closeChatWindow(e) }}>X</span></div>
+                                <span id={props.firstName} className='hover:bg-gray-600  px-1 rounded-full w-6 h-6' onClick={(e) => { handleCloseWindow(e) }}>X</span></div>
                         </div>
                           <hr/>
                         <div className=' text-xs font-thin border-solid-1 rounded-lg p-1 text-gray-200'>Family House at 55 Broad street Matawan</div>

@@ -31,3 +31,14 @@ window:window
 
 
 }
+
+
+
+export function removeWindow(id) {
+    const windowID = id
+
+    dispatcher.dispatch({
+        actionTypes:chatActionTypes.REMOVE_A_WINDOW,
+        window:windowID
+    });
+}

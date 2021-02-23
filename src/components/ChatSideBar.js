@@ -1,18 +1,35 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import '../styles/main.css'
 import {MessageWindow, ChatWindow } from './Popup_ConnectModules'
 import Logo from '../Assets/logo.png'
-
+import Chat_DataStore from "../stores/chatStore";
 
 const ChatSideBar = React.forwardRef((props, ref) => {
 
     const[chatWindows, setChatWIndows]=useState(props.chatWindows)
+
+    useEffect(()=>{
+        Chat_DataStore.addChangeListener(onChange);
+
+        
+        return () => Chat_DataStore.removeChangeListener(onChange);
+
+
+    })
+
+    function onChange(){
+
+setChatWIndows(Chat_DataStore.getOpenWindows())
+//console.log("CHAT CHANGE from ChatSideBar: ", chatWindows)
+    }
     
     console.log("CHATWINARRAY: ", chatWindows)
 
     const[visible, setVisible]=useState(false)
 
-console.log("Name data for chat:", props.property)
+//console.log("Name data for chat:", props.property)
+
+
 
 
 return(
@@ -30,12 +47,12 @@ return(
 
 <div className='flex'>
 {
-chatWindows&&
+chatWindows &&
 chatWindows.map((chat, key)=>(
 
     <div key={key} >
         
-        <ChatWindow closeChatWindow={props.closeChatWindow} firstName={chat} lastName= {"User"}/>
+        <ChatWindow  closeChatWindow={props.closeChatWindow} firstName={chat} lastName= {"User"}/>
         </div>
 ))
 

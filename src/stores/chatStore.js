@@ -6,11 +6,13 @@ import chatActions from "../actions/chatActionTypes";
 
 
 const CHANGE_EVENT = "change";
-let _windows = ['iii'];
+let _windows = [];
 let _window={}
 
 
 class ChatDataStore extends EventEmitter {
+
+   
     addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
     }
@@ -22,9 +24,12 @@ class ChatDataStore extends EventEmitter {
     emitChange() {
         this.emit(CHANGE_EVENT);
        
+
     }
 
    getOpenWindows() {
+  
+    
         return _windows;
     }
     getWindow() {
@@ -32,10 +37,23 @@ class ChatDataStore extends EventEmitter {
         return _window
     }
 
-    addWindow() {
-
+    addWindow(window) {
+        
+_windows.push(window)
+this.emitChange() 
         return _windows
     }
+
+    removeWindow(window) {
+        console.log("REMOVE WINDOW Called wit id",_windows.indexOf(window))
+const index=_windows.indexOf(window)
+ _windows.splice(index,1)
+ this.emitChange() 
+        return _windows
+    }
+
+
+
 }
 
 
@@ -47,18 +65,20 @@ dispatcher.register((action) => {
         case chatActions.GET_OPEN_WINDOWS:
             //_windows =  action.properties;
             //return(_windows)
-            this.getOpenWindows()
+            Chat_DataStore.getOpenWindows()
             Chat_DataStore.emitChange();
             break;
 
                 case chatActions.ADD_A_WINDOW:
-                    _windows.push('action.window ' );
-                    this.addWindow()
+                    Chat_DataStore.addWindow(action.window);
+                   // this.addWindow(action.window)
                     Chat_DataStore.emitChange();
                     break;
             
-
-
+case chatActions.REMOVE_A_WINDOW:
+    Chat_DataStore.removeWindow(action.window)
+    Chat_DataStore.emitChange()
+break;
         default:
         case Chat_DataStore.GET_OPEN_WINDOWS:
             

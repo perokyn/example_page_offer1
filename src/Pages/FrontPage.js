@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import PropertyList from '../components/PorpertyList'
 import Chat_DataStore from "../stores/chatStore";
-import {addWindow,getOpenWindows} from '../actions/chatActions'
+import { addWindow, getOpenWindows ,removeWindow} from '../actions/chatActions'
 import { getProperties } from "../actions/postActions";
 import DropDownMenu from '../components/DropDownMenu'
 import main from '../Assets/main.jpeg'
 import Footer from '../components/Footer'
-import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import ChatSideBar from '../components/ChatSideBar'
 import '../styles/App.css'
 
-import SpecialEvents  from "../utils/SpecialEvents";
+import SpecialEvents from "../utils/SpecialEvents";
 
 
 const FrontPage = (props) => {
@@ -56,32 +55,33 @@ const FrontPage = (props) => {
     })
 
 
-    const[openSideBar, setOpenChatSideBar]=useState(false)
-    const[windows,setWindows]=useState( Chat_DataStore.getOpenWindows)
+    const [openSideBar, setOpenChatSideBar] = useState(false)
+    const [windows, setWindows] = useState(Chat_DataStore.getOpenWindows)
 
 
     useEffect(() => {
-        SpecialEvents.on('OPEN_SEARCH_BAR',(emitValue)=>{setSearch({searchMenu:emitValue})})    
+        SpecialEvents.on('OPEN_SEARCH_BAR', (emitValue) => { setSearch({ searchMenu: emitValue }) })
         Chat_DataStore.addChangeListener(onChange);
 
         if (Chat_DataStore.getOpenWindows().length === 0) getOpenWindows();
         return () => Chat_DataStore.removeChangeListener(onChange);
-    
 
-        
 
-    
+
+
+
 
     }, []);
-    
 
-    
-  function onChange(){
-console.log('Chat event detected',Chat_DataStore.getOpenWindows())
-    setWindows(Chat_DataStore.getOpenWindows());
 
-    console.log('WINDOWS',windows)
-  }
+
+    function onChange() {
+        
+        console.log('Chat event detected')
+        setWindows(Chat_DataStore.getOpenWindows());
+
+        console.log('WINDOWS', windows)
+    }
 
 
     const filterProperties = (e) => {
@@ -130,87 +130,66 @@ console.log('Chat event detected',Chat_DataStore.getOpenWindows())
     const active = 'p-3 z-10 flex flex-col bg-white sm:hidden search_bar '
 
     //=====open chat side bar and pass data to chat windows===========//
-   
-const[chatWindows, setChatWIndows]=useState([])
-
-    function openChatSideBar(e){
 
 
-  console.log("Set Open Chat Side Bar Called!!",e.target)
-  let chatData=e.target.id
-  
-  
- /*  if(chatWindows.includes(chatData))
-  {
-  console.log('already in array')
-  }else { 
+    function openChatSideBar(e) {
+
+
+        console.log("Set Open Chat Side Bar Called!!", e.target)
+        let chatData = e.target.id
+
+        
+ 
+
+        if (windows.includes(chatData)) {
+            console.log('already in array')
+        } else { Chat_DataStore.addWindow(chatData) }
+
+
+
+        setOpenChatSideBar(!openSideBar)
+
       
-    const chatwindows = [ ...chatWindows ];
-    chatwindows.push(chatData);
-    setChatWIndows(chatwindows);
-  }*/
- 
-  
 
-  if(chatWindows.includes(chatData))
-    {
-    console.log('already in array')
-    }else { chatWindows[chatWindows.length]=chatData}
-  
-  if(chatWindows.length===0){ 
+    }
 
-      chatWindows[0]=chatData
-    }else if(chatWindows.includes(chatData))
-    {
-    console.log('already in array')
-    }else { chatWindows[chatWindows.length]=chatData}
- 
 
- 
- setOpenChatSideBar(!openSideBar)
+    const closeChatWindow = (e) => {
+        console.log("closechat with:", e.target.id)
 
-  console.log("chatdata",chatWindows)
+        Chat_DataStore.removeWindow(e.target.id)
+
+      setWindows(Chat_DataStore.getOpenWindows());
+
+        console.log("after remo e", Chat_DataStore.getOpenWindows())
        
     }
 
- const closeChatWindow=(e)=>{
-console.log("closechat with:",e.target.id)
-let close=e.target.id
-let newwindows=chatWindows.splice(close, 1)
-addWindow(close)
-chatWindows.pop()
- // setChatWIndows([]) //TO DO LEarn to update react array in state... 
- 
-  
-console.log("after remo e",chatWindows) 
-//chatWindows.pop() 
- }  
-   
 
     return (
         <div className='bg-white'>
 
-          
-          <ChatSideBar chatWindows={chatWindows} closeChatWindow={(e)=>{closeChatWindow(e)}}/>
 
-          <div className='image_banner hidden sm:block'>
-        <div className='absolute top-32 text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
- 
-          <p className=' '>Make an Offer <br/>
+            <ChatSideBar chatWindows={windows} closeChatWindow={(e) => { closeChatWindow(e) }} />
+
+            <div className='image_banner hidden sm:block'>
+                <div className='absolute top-32 text-6xl pl-8 bg-gray-900 w-full bg-opacity-60 font-bold text-green-300'>
+
+                    <p className=' '>Make an Offer <br />
           &nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span className='  text-6xl  font-bold text-blue-400'>Today</span>
-          </p>
-          <p className='text-white text-xl font-semibold'>Get a Deal Tomorrow</p>
-         
-          </div>
-          
-          </div>
-                
-          <img alt='property' src={main}></img>
-             
+                    </p>
+                    <p className='text-white text-xl font-semibold'>Get a Deal Tomorrow</p>
+
+                </div>
+
+            </div>
+
+            <img alt='property' src={main}></img>
+
 
 
             <div className='hidden sm:block search_bar z-10 mx-auto sm:flex  p-3 sm:justify-around bg-white'>
@@ -237,15 +216,15 @@ console.log("after remo e",chatWindows)
                 </div>
             </div>
 
-            
+
 
             <div className={searchMenu ? active : hidden} >
                 <hr />
                 <div className='m-2 mt-8'>
-                <div className='flex items-center justify-end ml-3 mt-2 mb-2 p-2  rounded-lg'
-                    onClick={() => setSearch(!searchMenu)}>
-                    <label>X</label>
-</div>
+                    <div className='flex items-center justify-end ml-3 mt-2 mb-2 p-2  rounded-lg'
+                        onClick={() => setSearch(!searchMenu)}>
+                        <label>X</label>
+                    </div>
                     <span className='text-gray-800 mr-2 font-semibold'>City</span> < DropDownMenu defaultValue={'select City'} option={'city'} optionValues={filterData} width={'w-1/4'}
                         handleChange={e => filterProperties(e)}
                         ref={City} />
@@ -268,8 +247,8 @@ console.log("after remo e",chatWindows)
                 </div>
             </div>
 
-<div className='relative'>
-            <PropertyList  chatWindows={chatWindows}  handleChatSidebar={(e)=>openChatSideBar(e)} properties={properties} />
+            <div className='relative'>
+                <PropertyList chatWindows={windows} handleChatSidebar={(e) => openChatSideBar(e)} properties={properties} />
             </div>
             <Footer />
         </div>
@@ -277,4 +256,4 @@ console.log("after remo e",chatWindows)
     )
 }
 
-export default withRouter (FrontPage)
+export default withRouter(FrontPage)
