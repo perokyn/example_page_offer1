@@ -22,8 +22,9 @@ const UserCard = React.forwardRef((props, ref) => {
                 <p className='text-gray-600 text-xs font-thin hover:underline pt-1 pb-2'>
                     {props.userData.firstName} {props.userData.lastName}
                 </p>
-
-                <div className='flex flex-row justify-around '>
+                <hr/>
+                <p className='text-xs text-blue-400'>Discuss a Deal!</p>
+                <div className='flex flex-row justify-around my-3'>
                     <img id={props.userData.firstName}className='w-6 h-6 rounded-sm border-2 hover:border-gray-600' alt='msg' src={msg}
                     //onClick={()=>{setOpenChat(!openChat)}} 
                     onClick={(e)=>props.handleChatSidebar(e)} 

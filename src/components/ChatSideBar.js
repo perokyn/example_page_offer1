@@ -20,7 +20,7 @@ const ChatSideBar = React.forwardRef((props, ref) => {
     function onChange(){
 
 setChatWIndows(Chat_DataStore.getOpenWindows())
-//console.log("CHAT CHANGE from ChatSideBar: ", chatWindows)
+console.log("CHAT CHANGE from ChatSideBar: ", chatWindows)
     }
     
     console.log("CHATWINARRAY: ", chatWindows)
@@ -33,21 +33,21 @@ setChatWIndows(Chat_DataStore.getOpenWindows())
 
 
 return(
-<div id='chatSideBar' className=' flex fixed items-end z-40 bottom-0 right-0 bg-gray-100 p-3 mt-3  rounded-t-xl'>
+<div id='chatSideBar' className=' flex fixed item-3 s-end z-40 bottom-0 right-0 p-3 mt '>
 
 <div>
  
 
 
-<div className='sm:flex items-end'>
+{/*<div className='sm:flex items-end'>
 <img alt='logo' src={Logo} className='h-10 w-10'></img>
 
 <p className='text-sm font-thin text-gray-400'>GetADeal.com</p>
-</div>
+</div>*/}
 
 <div className='flex'>
 {
-chatWindows &&
+chatWindows && 
 chatWindows.map((chat, key)=>(
 
     <div key={key} >

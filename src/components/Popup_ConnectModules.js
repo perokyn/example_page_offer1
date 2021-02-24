@@ -34,30 +34,30 @@ export const ChatWindow = (props) => {
     const[locallyClosed, setLocallyClosed]=useState(false)
     const [visible, setVisible] = useState(true)
     const [collapse, setCollapse] = useState(false)
+const[name, setName]=useState(props.firstName)
 
-
+console.log()
 
     useEffect(()=>{
 
         Chat_DataStore.addChangeListener(onChange);
     
-        
+       return 
     
-    })
+    },)
     
     
     const onChange=()=>{
-        const windows=Chat_DataStore.getOpenWindows()
+       // const windows=Chat_DataStore.getOpenWindows()
        
-    if(windows.includes(props.firstName)
-
-    ){ 
-
-      SetClosed(!closed)     }
+    
+         
+        
+       
      }
     
 
-
+     console.log('NAME INCLUDED',name)
 
 
     if (visible) {
@@ -70,7 +70,7 @@ export const ChatWindow = (props) => {
 
     const handleCloseWindow =(e)=>{
         props.closeChatWindow(e)
-         SetClosed(!closed)
+         SetClosed(true)
          setLocallyClosed(true)
         
      }

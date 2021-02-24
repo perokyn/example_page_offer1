@@ -161,7 +161,7 @@ const FrontPage = (props) => {
 
       setWindows(Chat_DataStore.getOpenWindows());
 
-        console.log("after remo e", Chat_DataStore.getOpenWindows())
+        console.log("after remove", Chat_DataStore.getOpenWindows())
        
     }
 
